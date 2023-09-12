@@ -32,7 +32,7 @@ const PORT = process.env.PORT || 5001
 const __filename = fileURLToPath(import.meta.url)
 const __dirName = dirname(__filename)
 // DEPLOYMENT - location of build file
-app.use(express.static(path.resolve(__dirName, 'client/build')))
+app.use(express.static(path.resolve(__dirName, '../client/build')))
 
 app.get('/api/v1', (req, res) => {
   res.status(205).json({ msg: 'Welcome' })
@@ -50,7 +50,7 @@ app.use('/api/v1/users', userRouter)
 // DEPLOYMENT - after trying above routes, serve index.html file
 
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirName, 'client/build', 'index.html'))
+  res.sendFile(path.resolve(__dirName, '../client/build', 'index.html'))
 })
 // app.use(express.static('client/build'))
 
