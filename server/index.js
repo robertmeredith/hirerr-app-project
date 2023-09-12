@@ -12,6 +12,7 @@ import messageRouter from './routes/message.route.js'
 import orderRouter from './routes/order.route.js'
 import reviewRouter from './routes/review.route.js'
 import userRouter from './routes/user.route.js'
+import { log } from 'console'
 
 const app = express()
 
