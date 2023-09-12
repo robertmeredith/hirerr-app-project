@@ -1,0 +1,8 @@
+.order-item {
+  height: 50px;
+  &:nth-child(even) {
+    background-color: var(--pearl-aqua);
+  }
+
+
+}

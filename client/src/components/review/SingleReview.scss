@@ -1,0 +1,62 @@
+.item {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+
+    .user {
+      display: flex;
+      align-items: center;
+      height: 50px;
+      gap: 20px;
+
+      .profile-image {
+        height: 100%;
+        width: auto;
+      }
+      .info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+
+        .country {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          color: gray;
+          img {
+            width: 25px;
+            height: 25px;
+          }
+        }
+      }
+    }
+    .stars {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      img {
+        width: 14px;
+        height: 14px;
+      }
+      span {
+        font-size: 14px;
+        font-weight: bold;
+      }
+    }
+    .helpful {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      img {
+        width: 14px;
+        height: 14px;
+      }
+    }
+    hr {
+      height: 0;
+      border: 0.5px solid var(--gray-1);
+      margin: 50px 0;
+    }
+  }
