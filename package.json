@@ -4,7 +4,7 @@
   "description": "",
   "main": "./server/index.js",
   "type": "module",
-    "engines": {
+  "engines": {
     "node": "18.x"
   },
   "scripts": {
@@ -27,5 +27,8 @@
     "mongoose": "^7.5.0",
     "nodemon": "^3.0.1",
     "stripe": "^13.4.0"
+  },
+  "devDependencies": {
+    "vite": "^4.4.9"
   }
 }
