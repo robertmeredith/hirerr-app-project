@@ -1,3 +1,5 @@
+import './Footer.scss'
+
 const aboutCategory = [
   'Careers',
   'Press & News',
@@ -59,7 +61,7 @@ const solutionsCategory = [
   'Contact Sales',
 ]
 
-import './Footer.scss'
+
 
 const Footer = () => {
   return (

@@ -16,12 +16,27 @@ import { log } from 'console'
 
 const app = express()
 
+// FOR DEPLOYMENT to Heroku
+import { dirname } from 'path'
+import path from 'path'
+import { fileURLToPath } from 'url'
+
 // Parse JSON bodies
-// app.use(cors({ origin: 'http://localhost:5173', credentials: true }))
+app.use(cors({ origin: 'http://localhost:3000', credentials: true }))
 app.use(express.json())
 app.use(cookieParser())
 
 const PORT = process.env.PORT || 5001
+
+// DEPLOYMENT
+const __filename = fileURLToPath(import.meta.url)
+const __dirName = dirname(__filename)
+// DEPLOYMENT - location of build file
+app.use(express.static(path.resolve(__dirName, 'client/build')))
+
+app.get('/api/v1', (req, res) => {
+  res.status(205).json({ msg: 'Welcome' })
+})
 
 // Route endpoints
 app.use('/api/v1/auth', authRouter)
@@ -31,6 +46,13 @@ app.use('/api/v1/messages', messageRouter)
 app.use('/api/v1/orders', orderRouter)
 app.use('/api/v1/reviews', reviewRouter)
 app.use('/api/v1/users', userRouter)
+
+// DEPLOYMENT - after trying above routes, serve index.html file
+
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirName, 'client/build', 'index.html'))
+})
+// app.use(express.static('client/build'))
 
 // Error middleware
 app.use((err, req, res, next) => {
