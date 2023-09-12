@@ -14,7 +14,6 @@ import Register from './pages/register/Register'
 import Pay from './pages/pay/Pay'
 import Success from './pages/success/Success'
 import { useEffect } from 'react'
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
