@@ -7,7 +7,7 @@ export const getUsers = async (req, res) => {
     const allUsers = await User.find({})
     return res.status(200).json(allUsers)
   } catch (error) {
-    return next(err)
+    return next(error)
   }
 }
 
@@ -15,8 +15,10 @@ export const getUsers = async (req, res) => {
 export const getUser = async (req, res, next) => {
   const { userId } = req.params
 
+  console.log('------- USER ID -------', userId)
+
   try {
-    const user = await User.findById(userId)
+    const user = await User.findById(userId.toString())
     if (!user) {
       return next(createError(404, 'No user with that Id'))
     }
@@ -24,7 +26,7 @@ export const getUser = async (req, res, next) => {
 
     res.status(200).json(rest)
   } catch (error) {
-    return next(err)
+    return next(error)
   }
 }
 

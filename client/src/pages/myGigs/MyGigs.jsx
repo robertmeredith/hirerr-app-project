@@ -8,9 +8,8 @@ const MyGigs = () => {
   const currentUser = getCurrentUser()
   const queryClient = useQueryClient()
 
-
   const { data, isLoading, error } = useQuery({
-    queryKey: ['myGigs'],
+    queryKey: ['myGigs', currentUser._id],
     queryFn: () =>
       newRequest
         .get(`/gigs/?userId=${currentUser._id}`)
@@ -19,12 +18,13 @@ const MyGigs = () => {
 
   const { mutate } = useMutation({
     mutationFn: (gigId) => newRequest.delete(`/gigs/${gigId}`),
-    onSettled: queryClient.refetchQueries('myGigs'),
+    onSuccess: queryClient.refetchQueries('myGigs'),
   })
 
   const handleDelete = (gigId) => {
     mutate(gigId)
   }
+
   return (
     <div className="my-gigs">
       {isLoading ? (

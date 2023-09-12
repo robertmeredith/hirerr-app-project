@@ -60,13 +60,13 @@ app.use((err, req, res, next) => {
   const errorStatus = err.status || 500
   const errorMessage = err.message || 'Something went wrong!'
 
-  console.log('ERROR MIDDLEWARE')
-  console.log('Res status: ', res.statusCode)
-  console.log('Error Name', err.name)
-  console.log('Error Value', err.value)
-  console.log('Error Code', err.code)
+  // console.log('ERROR MIDDLEWARE')
+  // console.log('Res status: ', res.statusCode)
+  // console.log('Error Name', err.name)
+  // console.log('Error Value', err.value)
+  // console.log('Error Code', err.code)
   console.log('Message: ', err.message)
-  console.log('Stack: ', err.stack)
+  // console.log('Stack: ', err.stack)
 
   return res.status(errorStatus).send(errorMessage)
 })

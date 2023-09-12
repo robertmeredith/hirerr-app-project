@@ -30,10 +30,6 @@ const Message = () => {
     onSuccess: () => queryClient.refetchQueries(['messages']),
   })
 
-  if (!isLoading) {
-    console.log(messages)
-
-  }
 
   const handleSubmit = (e) => {
     e.preventDefault()

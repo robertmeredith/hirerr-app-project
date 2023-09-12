@@ -5,6 +5,8 @@ import { createError } from '../utils/createError.js'
 export const getAllGigs = async (req, res, next) => {
   const { query } = req
 
+
+
   try {
     const filter = {
       // this syntax explained - we don't want the key to exist if there is no value to it
@@ -16,6 +18,7 @@ export const getAllGigs = async (req, res, next) => {
         query.max && { price: { $gt: query.min, $lt: query.max } }),
       ...(query.search && { desc: { $regex: query.search, $options: 'i' } }),
     }
+
 
     // If category is all, remove category from filter
     if (query.cat === 'all') {
