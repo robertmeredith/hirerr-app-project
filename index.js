@@ -1,17 +1,17 @@
 import express from 'express'
 import 'dotenv/config'
-import connect from './connectdb.js'
+import connect from './server/connectdb.js'
 import cookieParser from 'cookie-parser'
 import cors from 'cors'
 
 // Import Routes
-import authRouter from './routes/auth.route.js'
-import conversationRouter from './routes/conversation.route.js'
-import gigRouter from './routes/gig.route.js'
-import messageRouter from './routes/message.route.js'
-import orderRouter from './routes/order.route.js'
-import reviewRouter from './routes/review.route.js'
-import userRouter from './routes/user.route.js'
+import authRouter from './server/routes/auth.route.js'
+import conversationRouter from './server/routes/conversation.route.js'
+import gigRouter from './server/routes/gig.route.js'
+import messageRouter from './server/routes/message.route.js'
+import orderRouter from './server/routes/order.route.js'
+import reviewRouter from './server/routes/review.route.js'
+import userRouter from './server/routes/user.route.js'
 import { log } from 'console'
 
 const app = express()
@@ -32,7 +32,7 @@ const PORT = process.env.PORT || 5001
 const __filename = fileURLToPath(import.meta.url)
 const __dirName = dirname(__filename)
 // DEPLOYMENT - location of build file
-app.use(express.static(path.resolve(__dirName, '../client/build')))
+app.use(express.static(path.resolve(__dirName, 'client/build')))
 
 app.get('/api/v1', (req, res) => {
   res.status(205).json({ msg: 'Welcome' })
@@ -50,7 +50,7 @@ app.use('/api/v1/users', userRouter)
 // DEPLOYMENT - after trying above routes, serve index.html file
 
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirName, '../client/build', 'index.html'))
+  res.sendFile(path.resolve(__dirName, 'client/build', 'index.html'))
 })
 // app.use(express.static('client/build'))
 
