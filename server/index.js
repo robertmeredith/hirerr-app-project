@@ -17,7 +17,7 @@ import { log } from 'console'
 const app = express()
 
 // Parse JSON bodies
-app.use(cors({ origin: 'http://localhost:5173', credentials: true }))
+// app.use(cors({ origin: 'http://localhost:5173', credentials: true }))
 app.use(express.json())
 app.use(cookieParser())
 
