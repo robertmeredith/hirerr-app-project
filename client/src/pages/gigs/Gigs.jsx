@@ -89,11 +89,24 @@ const Gigs = () => {
         {}
 
         <div className="cards">
-          {isLoading
-            ? 'Loading...'
-            : error
-            ? 'Something went wrong...'
-            : data.gigs.map((gig) => <GigCard key={gig._id} item={gig} />)}
+          {isLoading ? (
+            <div className="loading">
+              <p>Loading Results. Won't be long...</p>
+            </div>
+          ) : error ? (
+            <div className="error">
+              <p>Something went wrong</p>
+            </div>
+          ) : data.gigs.length === 0 ? (
+            <div className="no-results">
+              <p>
+                No services currently available that meet your criteria. Please
+                try another search.
+              </p>
+            </div>
+          ) : (
+            data.gigs.map((gig) => <GigCard key={gig._id} item={gig} />)
+          )}
         </div>
       </div>
     </div>

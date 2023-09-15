@@ -6,8 +6,12 @@ const Featured = () => {
   const [search, setSearch] = useState('')
   const navigate = useNavigate()
 
-  const handleSubmit = () => {
-    navigate(`/gigs?search=${search}`)
+  const handleSearch = () => {
+     navigate(`/gigs?search=${search}`)
+  }
+
+  const handleCatSearch = (searchValue) => {
+    navigate(`/gigs?cat=${searchValue}`)
   }
 
   return (
@@ -26,15 +30,21 @@ const Featured = () => {
                 placeholder="Search for any service..."
               />
             </div>
-            <button onClick={handleSubmit}>Search</button>
+            <button onClick={handleSearch}>Search</button>
           </div>
           {/* Popular */}
           <div className="popular">
             <span>Popular:</span>
-            <button>Website Design</button>
-            <button>Wordpress</button>
-            <button>Logo Design</button>
-            <button>AI Services</button>
+            <button onClick={() => handleCatSearch('web-design')}>
+              Website Design
+            </button>
+            <button onClick={() => handleCatSearch('ai-services')}>
+              AI Services
+            </button>
+            <button onClick={() => handleCatSearch('wordpress')}>Wordpress</button>
+            <button onClick={() => handleCatSearch('logo-design')}>
+              Logo Design
+            </button>
           </div>
         </div>
         <div className="right">

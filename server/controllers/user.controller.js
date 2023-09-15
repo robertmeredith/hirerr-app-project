@@ -15,7 +15,6 @@ export const getUsers = async (req, res) => {
 export const getUser = async (req, res, next) => {
   const { userId } = req.params
 
-  console.log('------- USER ID -------', userId)
 
   try {
     const user = await User.findById(userId.toString())

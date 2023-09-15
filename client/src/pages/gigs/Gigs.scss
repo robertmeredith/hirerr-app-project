@@ -95,5 +95,21 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 20px;
+
+    .no-results,
+    .loading,
+    .error {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      grid-column: 1/5;
+      padding: 80px 0;
+
+      p {
+        text-align: center;
+        font-size: 18px;
+        color: var(--gray-2);
+      }
+    }
   }
 }

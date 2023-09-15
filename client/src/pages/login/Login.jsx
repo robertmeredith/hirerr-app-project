@@ -19,7 +19,8 @@ const Login = () => {
       localStorage.setItem('currentUser', JSON.stringify(data))
       navigate('/')
     } catch (err) {
-      const message = err.response.data
+
+      const message = err.response.data.msg
       setError(message)
     }
   }

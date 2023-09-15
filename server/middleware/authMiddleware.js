@@ -17,7 +17,7 @@ export const authMiddleware = async (req, res, next) => {
     if (!user) {
       return next(createError(404, 'Authentication Invalid'))
     }
-    // console.log(`AUTH MIDDLEWARE // USER: ${user.username} - ${user._id}`)
+
     req.user = user
   } catch (error) {
     return next(createError(403, 'Token not valid'))
